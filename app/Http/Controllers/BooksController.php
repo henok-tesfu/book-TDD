@@ -8,11 +8,23 @@ use App\Models\Book;
 class BooksController extends Controller
 {
     public function store(){
-
-        Book::create([
-            'title' => request('title'),
-            'author' => request('author'),
-
+        
+        $data = request()->validate([
+            'title' => 'required',
+            'author' => 'required'
         ]);
+
+        Book::create($data);
+    }
+
+    public function update(Book $book)
+    {
+        $data = request()->validate([
+            'title' => 'required',
+            'author' => 'required'
+        ]);
+
+        $book->update($data);
+
     }
 }
