@@ -5,9 +5,13 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\Book;
+use App\Http\Controllers\BooksController;
 
 class BookReservationTest extends TestCase
 {
+    use RefreshDatabase;
+     
     /** @test */
     public function a_book_can_be_add_to_library()
     {
