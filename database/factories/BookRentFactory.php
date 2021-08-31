@@ -2,17 +2,19 @@
 
 namespace Database\Factories;
 
+use App\Models\BookRent;
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BookFactory extends Factory
+class BookRentFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Book::class;
+    protected $model = BookRent::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +24,9 @@ class BookFactory extends Factory
     public function definition()
     {
         return [
-        'title'=>$this->faker->sentence(),
-        'author'=>$this->faker->unique()->name()
+            //
+            'user_id'=>1,
+        'book_id'=>Book::factory()->create()
         ];
     }
 }

@@ -40,4 +40,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    function bookrents(){
+        return $this->hasMany(BookRent::class);
+    }
+    function recentRent(){
+        return $this->hasOne(BookRent::class)->orderBy('created_at','desc');
+    }
 }
